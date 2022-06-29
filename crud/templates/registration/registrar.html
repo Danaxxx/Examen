@@ -54,7 +54,7 @@
                         <h6 class="text-center">Administración</h6>
                         <li><a class="dropdown-item" href="{% url 'donacionAdm'  %}" tabindex="-1" aria-disabled="true">Administrar donaciones</a></li>
                         <!--<li><a class="dropdown-item" href="{% url 'usuarioAdm'  %}" tabindex="-1" aria-disabled="true">Administrar usuarios</a></li>-->
-                        <!--<li><a class="dropdown-item" href="{% url 'suscripcionAdm'  %}" tabindex="-1" aria-disabled="true">Administrar suscripcion</a></li>-->     
+                        <li><a class="dropdown-item" href="{% url 'suscripcionAdm'  %}" tabindex="-1" aria-disabled="true">Administrar suscripcion</a></li>      
                         <li><a class="dropdown-item" href="{% url 'producto'  %}" tabindex="-1" aria-disabled="true">Administrar producto</a></li>                          
                       
                       </ul>
@@ -65,6 +65,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-3 rounded" href="{% url 'index' %}">HOME</a></li>
 
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-3 rounded" href="{% url 'donacion'  %}">DONACIONES</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-3 rounded" href="{% url 'suscripcion'  %}">SUSCRIPCION</a></li>
                     {% if user.is_authenticated %}
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-3 rounded" href="{% url 'tienda' %}">PRODUCTOS</a></li>
                     
