@@ -1,0 +1,128 @@
+{# Esto es un comentario #}
+{% extends "plantillaBase.html" %}
+
+{# definir contenidos que tendrán cada uno de los bloques #}
+{% block tituloPestana %} 
+    Jardineria Les Fleur
+{% endblock %}
+{% block tituloPagina %} 
+  
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %} 
+<br>
+<!--Cuerpo-->
+<header class="bg-white py-5 ">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center">
+            <div class="col-lg-8 mb-5 col-xl-7 col-xxl-6">
+                <div class="my-5 text-center text-xl-start mb-6">
+                    <h1 class="display-5 fw-bolder  mb-2">Crea vida sustentable y ecológica junto a <br> "Les Fleurs" </h1>
+                    <p class="lead fw-normal text-50 mb-4">Nuestros productos de terraza y jardín mejoran vidas, brotan talentos y buenas oportunidades.</p>
+
+                </div>
+            </div>
+
+
+            <div id="myCarousel" class="carousel slide col-xl-5 col-xs-6 d-xs-block mb-5 d-xl-block text-center" data-bs-ride="carousel">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+                </ol>
+            
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://st.depositphotos.com/2305339/4739/i/450/depositphotos_47392903-stock-photo-adorable-girl-with-a-watering.jpg" class="d-block w-100" alt="Slide 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://static6.depositphotos.com/1085342/585/i/450/depositphotos_5854207-stock-photo-summer-gardening.jpg" class="d-block w-100" alt="Slide 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://st.depositphotos.com/65716140/55210/i/600/depositphotos_552105084-stock-photo-golden-retriever-jugando-en-el.jpg" class="d-block w-100" alt="Slide 3">
+                    </div>
+                </div>
+            
+                <!-- Carousel controls -->
+                <a class="carousel-control-prev" href="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+
+           
+        </div>
+        <hr style="border:2px;">
+    </div>
+
+</header>
+
+
+<!-- Blog preview section-->
+<section class="py-5">
+    <div class="container px-5 my-1">
+        
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="text-center">
+                    <h2 class="fw-bolder">¡Nuevos Productos!</h2>
+                    <p class="lead fw-normal text-muted mb-5">Renueva tu hogar junto a las nuevas huertas eco-friendly</p>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0572/0857/0061/products/HuertaRusticaVerdeVeteado_2_5000x.png?v=1626034892" href="{% url 'macInd1' %}"alt="Huerta verde" />
+                    <div class="card-body p-4">
+                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Nuevo</div>
+                        <a class="text-decoration-none link-dark stretched-link" href="{% url 'macInd1' %}"><h5 class="card-title mb-3">Huerta Rústica Sustentable</h5></a>
+                        <p class="card-text mb-0">Medidas :50 cm x 30 cm x 40 cm. <br> Usos: Hierbas, Verduras, Flores, Plantas de interior pequeñas, Medianas, Suculentas, Frutas, etc. <br> Materiales: Espino Radiata (cepillado), hecho en Chile.<br>-No incluye plantas-</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0572/0857/0061/products/HuertaRusticaBlancoVeteado_3_5000x.png?v=1626034106" href="{% url 'macInd2' %}"alt="Huerta blanca" />
+                    <div class="card-body p-4">
+                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Nuevo</div>
+                        <a class="text-decoration-none link-dark stretched-link" href="{% url 'macInd2' %}"><h5 class="card-title mb-3">Huerta Rústica Sustentable</h5></a>
+                        <p class="card-text mb-0">Medidas :50 cm x 30 cm x 40 cm. <br> Usos: Hierbas, Verduras, Flores, Plantas de interior pequeñas, Medianas, Suculentas, Frutas, etc. <br> Materiales: Espino Radiata (cepillado), hecho en Chile.<br>-No incluye plantas-</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0572/0857/0061/products/HuertoUrbanoHabano_1_5000x.png?v=1626035043" href="{% url 'macInd3' %}"alt="Huerta alta cafe" />
+                    <div class="card-body p-4">
+                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Nuevo</div>
+                        <a class="text-decoration-none link-dark stretched-link" href="{% url 'macInd3' %}"><h5 class="card-title mb-3">Huerto Urbano Habano</h5></a>
+                        <p class="card-text mb-0">Medidas :60 cm x 17 cm x 159 cm. <br> Usos: Hierbas, Verduras, Flores, Plantas de interior pequeñas, Medianas, Suculentas, Frutas, etc. <br> Materiales: Espino Radiata (cepillado), hecho en Chile.<br>-No incluye plantas-</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</main>
+
+
+{% endblock %}

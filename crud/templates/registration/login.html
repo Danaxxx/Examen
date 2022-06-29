@@ -1,0 +1,55 @@
+{# Esto es un comentario #}
+{% extends "plantillaBase.html" %}
+
+{# definir contenidos que tendrán cada uno de los bloques #}
+{% block script %} 
+<script src="/static/js/EmpIndex.js"></script>
+{% endblock %}
+{% block tituloPestana %} 
+    Jardineria Les Fleur
+{% endblock %}
+{% block tituloPagina %} 
+  
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %} 
+
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+
+<h2 class="title">Inicio de Sesion</h2>
+
+{% load crispy_forms_tags %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    
+    
+        {{ form | crispy }}
+    
+        <br>
+       
+    <input type="submit" value="login" class="btn btn-success float-right">
+    <hr>
+    <p>¿No tienes cuenta?:  <a href="{% url 'registrar' %}" class="text" >Registrate aqui</a></p>
+    
+    </form>
+
+</div>
+
+{% endblock %}

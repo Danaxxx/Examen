@@ -1,0 +1,51 @@
+{# Esto es un comentario #}
+{% extends "plantillaBase.html" %}
+
+{# definir contenidos que tendrán cada uno de los bloques #}
+{% block tituloPestana %} 
+    Jardineria Les Fleur
+{% endblock %}
+{% block tituloPagina %} 
+  
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %} 
+<br>
+<!-- Product section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://cdn.shopify.com/s/files/1/0572/0857/0061/products/HuertoUrbanoHabano_1_5000x.png?v=1626035043" alt="..." /></div>
+            <div class="col-md-6">
+                <div class="small mb-1">MACETEROS</div>
+                <h1 class="display-5 fw-bolder">JARDINERA HUERTA.</h1>
+                <div class="fs-5 mb-5">
+                    <span>$10.990CLP/12.67USD</span>
+                </div>
+                <p class="lead"></p>
+                <p class="lead"> 
+
+                    ¡Haz de la jardinería un habito simple y divertido, agrega espacios verdes con esta maceta de jardinera vertical de 3 niveles separados para flores, hierbas verduras o frutas!
+                    
+                    Ofrece un modelo simple que facilita su uso y acceso, haciéndolo lo mas eficiente posible, y gracias a su modelo compacto es perfecto para espacios pequeños, interiores y reducidos.</p>
+                <div class="d-flex">
+                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                    <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                        <i class="bi-cart-fill me-1"></i>
+                        Agregar al Carro
+                    </button>
+</section>
+
+{% endblock %}

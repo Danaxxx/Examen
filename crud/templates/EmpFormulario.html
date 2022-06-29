@@ -1,0 +1,104 @@
+{# Esto es un comentario #}
+{% extends "plantillaBase.html" %}
+
+{# definir contenidos que tendrán cada uno de los bloques #}
+{% block script %} 
+<script src="/static/js/EmpFormulario.js"></script>
+{% endblock %}
+{% block tituloPestana %} 
+    Jardineria Les Fleur
+{% endblock %}
+{% block tituloPagina %} 
+  
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %} 
+        
+
+<br>
+<form id="idFormulario" action="EmpFormulario.html" method="post">
+    <div class="container">
+        <br>
+        <h1 class="text-center mt-3">Ingreso de Producto</h1>
+        <br>
+        <div class="row mt-5">
+            <div class="col-12 col-md-3 offset-md-2">
+                Id Producto
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="idProducto" id="idProducto" class="idProducto form-control" maxlength="14" placeholder="Ej: XXXXXXXXXXXXXX">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 col-md-3 offset-md-2">
+                Nombre Producto
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="txtNombre" id="txtNombre" class="txtNombre form-control" placeholder="Ej: Rosas Rojas">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 col-md-3 offset-md-2">
+                Cantidad
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="txtCantidad" id="txtCantidad" class="txtCantidad form-control" placeholder="Ej: 12">
+            </div>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-12 col-md-3 offset-md-2">
+                descripcion
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="descripcion" id="descripcion" class="descripcion form-control" placeholder="Ej: ñamñamñamñamñamñam">
+            </div>
+        </div>
+
+
+        <div class="row mt-3">
+            <div class="col-12 col-md-3 offset-md-2">
+                Precio Neto
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="precioNeto" id="precioNeto" class="precioNeto form-control" placeholder="Ej: $14.000">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 col-md-3 offset-md-2">
+                Precio Total
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="precioTotal" id="precioTotal" class="precioTotal form-control" placeholder="Ej: $14.990">
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-12 col-md-3 offset-md-2">
+                Opciones
+            </div>
+            <div class="col-12 col-md-5">
+                <button class="btn btn-danger float-end" id="btnEnviar" name="btnEnviar">Enviar</button>
+                <button class="btn btn-outline-secondary float-end" id="btnLimpiar" name="btnLimpiar">Limpiar</button>
+            </div>
+        </div>
+        </form>
+
+        <hr>
+    </div>    
+{% endblock %}

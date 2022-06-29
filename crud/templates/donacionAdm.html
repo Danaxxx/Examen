@@ -1,0 +1,100 @@
+{# Esto es un comentario #}
+{% extends "plantillaBase.html" %}
+
+{# definir contenidos que tendrán cada uno de los bloques #}
+{% block tituloPestana %} 
+    CRUD donacion
+{% endblock %}
+{% block tituloPagina %} 
+    <div class="text-center mt-5">
+        <h1>DONACIONES (ADMINISTRATIVO)</h1>
+    </div>
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %} 
+<br>
+<form method="POST" action="{% url 'donacionAdm' %}">
+    {% csrf_token %} 
+<div class="row">
+    <div class="col-md-2 offset-md-2">Nombre </div>
+    <div class="col-md-5">
+        <input type="hidden"    name="txtId" value="{{ fila.id }}">
+        <input type="text"      name="txtNombre" class="form-control txtNombre" value="{{ fila.nombreDonante }}" >
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-2 offset-md-2">Apellido </div>
+    <div class="col-md-5">
+        <input type="hidden"    name="txtId" value="{{ fila.id }}">
+        <input type="text"      name="txtApellido" class="form-control txtApellido" value="{{ fila.apellidoDonante }}" >
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-2 offset-md-2">Monto</div>
+    <div class="col-md-5">
+        <input type="hidden"    name="txtId" value="{{ fila.id }}">
+        <input type="text"   id="txtMonto"   name="txtMonto" class="form-control txtMonto" value="{{ fila.montoDonacion }}">
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-2 offset-md-2">Tipo de usuario</div>
+    <div class="col-md-5">
+        <input type="hidden"    name="txtId" value="{{ fila.id }}">
+        <input type="text"      name="ctMedioPago" class="form-control ctMedioPago" value="{{ fila.medioDePago }}">
+    </div>
+</div>
+
+
+<div class="row mt-3">
+    <div class="col-md-2 offset-md-2 mt-3">Opciones</div>
+    <div class="col-md-4">
+        <input type="submit" name="btnListar" class="btn btn-success btnListar" value="Listar">
+        <input type="reset" name="btnLimpiar" class="btn btn-outline-secondary btnLimpiar" value="Limpiar">
+        <input type="submit" name="btnEliminar" class="btn btn-warning btnEliminar" value="Eliminar">
+    </div>
+</div>
+</div>
+</form>
+{% endblock %}
+{% block listado %} 
+{% if listado %}
+    <div class="row mt-5">
+        <div class="col-12">
+            <table class="table">
+                <tr>
+                    <th>id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Monto Donacion</th>
+                    <th>Medio De Pago</th>
+                    <th>Seleccionar</th>
+                </tr>
+    {% for fila in listado %}
+                <tr>
+                    <td>{{ fila.id }}</td>
+                    <td>{{ fila.nombreDonante }}</td>
+                    <td>{{ fila.apellidoDonante }}</td>
+                    <td>{{ fila.montoDonacion }}</td>
+                    <td>{{ fila.medioDePago }}</td>
+                    <td><a href="{% url 'donacionAdm' %}/{{ fila.id }}/">Seleccionar</a></td>
+                </tr>
+    {% endfor %}
+            </table>
+        </div>
+    </div>
+
+{% endif %}
+{% endblock %}

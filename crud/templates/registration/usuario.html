@@ -1,0 +1,122 @@
+{# Esto es un comentario #}
+{% extends "plantillaBase.html" %}
+
+{# definir contenidos que tendrán cada uno de los bloques #}
+{% block script %} 
+<script src="/static/js/usuario.js"></script>
+{% endblock %}
+{% block tituloPestana %} 
+    CRUD Registro
+{% endblock %}
+{% block tituloPagina %} 
+  
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %}
+
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-sm-center h-100">
+            <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+
+                <div class="card shadow-lg">
+                    <div class="card-body p-5">
+                        <h1 class="fs-4 card-title fw-bold mb-4">Registro Empleado</h1>
+                        <form method="POST" action="{% url 'usuario' %}">
+                            {% csrf_token %} 
+
+
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted">Run<span class="text-danger">*</span></label>
+                                <div class="col-md-5-center">
+                                    <input type="hidden"    name="txtId" value="{{ fila.id }}">
+                                    <input type="text"  maxlength="10" size="10"     name="txtRun" class="form-control txtRun" value="{{ fila.run }}" >
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted">Digito Verificador<span class="text-danger">*</span></label>
+                                <div class="col-md-5-center">
+                                    <input type="hidden"    name="txtId" value="{{ fila.id }}">
+                                    <input type="text"  maxlength="1" size="1"     name="txtDv" class="form-control txtDv" value="{{ fila.dv }}" >
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="name">Nombre de Usuario<span class="text-danger">*</span></label>
+                                <div class="col-md-5-center">
+                                    <input type="hidden"    name="txtId" value="{{ fila.id }}">
+                                    <input type="text"      name="txtNombreUsuario" class="form-control txtNombreUsuario" value="{{ fila.nombreUsuario }}" >
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted">E-Mail<span class="text-danger">*</span></label>
+                                <div class="col-md-5-center">
+                                    <input type="hidden"    name="txtId" value="{{ fila.id }}">
+                                    <input type="text"      name="txtEmail" class="form-control txtEmail" value="{{ fila.email }}" >
+                                </div>
+                            </div>
+
+                            <div class="mb-3 ">
+                                <label class="mb-2 text-muted " for="password">Contraseña<span class="text-danger">*</span></label>
+                                <div class="col-md-5-center">
+                                    <input type="hidden"    name="txtId" value="{{ fila.id }}">
+                                    <input type="password"      name="txtPassword" class="form-control txtPassword" value="{{ fila.password }}" >
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <label class="mb-2 text-muted ">Tipo de usuario<span class="text-danger">*</span></label>
+                                <div class="col-md-5-center">
+                                <select name="ctTipoDeUsuario" class="ctTipoDeUsuario form-select" id="ctTipoDeUsuario" value="{{ fila.tipoDeUsuario }}">
+                                    <option selected class="ctTipoDeUsuario" hidden value="0">Seleccione una Tipo</option>
+                                    {% if userCategories %}
+                                    {% for fila in userCategories %}
+                                    {% if fila.activo %}
+                                        <option value="{{fila.id}}">{{fila.nombreTipoUsuario}}</option>
+                                    {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                                </div>
+                            </div>
+
+                            <p class="form-text text-muted mb-3 mt-3">
+                                Al registrarte estás de acuerdo con nuestros términos y condiciones.
+                            </p>
+                            
+                            <div class="row">
+                                <div class="align-items-center d-flex">
+                                    <input type="submit" id="btnGrabar" name="btnGrabar" class="btn btn-dark btnGrabar" value="Registrarse">
+                                    <input type="reset" name="btnLimpiar" class="btn btn-outline-secondary btnLimpiar" value="Limpiar">
+                                </div>
+                            </div>
+                            </form>
+                            <!--div class="align-items-center d-flex">
+                                <button name="btnEnviar" id="btnEnviar" type="submit" class="btn btn-primary ms-auto">
+                                    Registrarse	
+                                </button>
+                            </div>
+                        </form>-->
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

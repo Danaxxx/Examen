@@ -1,0 +1,104 @@
+{# Esto es un comentario #}
+{% extends "plantillaBase.html" %}
+
+{# definir contenidos que tendrán cada uno de los bloques #}
+{% block script %} 
+<script src="/static/js/donacion.js"></script>
+{% endblock %}
+{% block tituloPestana %} 
+    CRUD Registro
+{% endblock %}
+{% block tituloPagina %} 
+  
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %}
+
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-sm-center h-100">
+            <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+
+                <div class="card shadow-lg">
+                    <div class="card-body p-5">
+                        <h1 class="fs-4 card-title fw-bold mb-4">D O N A C I O N </h1>
+                        <form method="POST" action="{% url 'donacion' %}">
+                            {% csrf_token %} 
+
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="name">Nombre <span class="text-danger">*</span></label>
+                                <div class="col-md-5-center">
+                                    <input type="hidden"    name="txtId" value="{{ fila.id }}">
+                                    <input type="text"      name="txtNombre" class="form-control txtNombre" value="{{ fila.nombreDonante }}" >
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="name">Apellido <span class="text-danger">*</span></label>
+                                <div class="col-md-5-center">
+                                    <input type="hidden"    name="txtId" value="{{ fila.id }}">
+                                    <input type="text"      name="txtApellido" class="form-control txtApellido" value="{{ fila.apellidoDonante }}" >
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted">Monto a donar<span class="text-danger">*</span></label>
+                                <div class="col-md-5-center">
+                                    <input type="hidden"    name="txtId" value="{{ fila.id }}">
+                                    <input type="text"      name="txtMonto" class="form-control txtMonto" value="{{ fila.montoDonacion }}" >
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <label class="mb-2 text-muted ">Tipo de usuario<span class="text-danger">*</span></label>
+                                <div class="col-md-5-center">
+                                <select name="ctMedioPago" class="ctMedioPago form-select" id="ctMedioPago" value="{{ fila.medioDePago }}">
+                                    <option selected class="ctMedioPago" hidden value="0">Seleccione medio de pago</option>
+                                    {% if payCategories %}
+                                    {% for fila in payCategories %}
+                                    {% if fila.activoMedio %}
+                                        <option value="{{fila.id}}">{{fila.nombreMedio}}</option>
+                                    {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                                </div>
+                            </div>
+
+                            <p class="form-text text-muted mb-3 mt-3">
+                                Al registrarte estás de acuerdo con nuestros términos y condiciones.
+                            </p>
+                            
+                            <div class="row">
+                                <div class="align-items-center d-flex">
+                                    <input type="submit" id="btnGrabar" name="btnGrabar" class="btn btn-dark btnGrabar" value="Registrarse">
+                                    <input type="reset" name="btnLimpiar" class="btn btn-outline-secondary btnLimpiar" value="Limpiar">
+                                </div>
+                            </div>
+                            </form>
+                            <!--div class="align-items-center d-flex">
+                                <button name="btnEnviar" id="btnEnviar" type="submit" class="btn btn-primary ms-auto">
+                                    Registrarse	
+                                </button>
+                            </div>
+                        </form>-->
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

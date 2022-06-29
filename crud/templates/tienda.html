@@ -1,0 +1,38 @@
+{% extends "plantillaBase.html" %}
+{% load static %}
+{% block contenido %}
+
+<section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+              {% for p in productos %}
+              <div class="col-15 mb-5">  
+                <div class="card h-100">
+                  {% if p.imagen %}             
+                    <!-- Product image-->
+                    <a ><img src="{{ p.imagen.url }} " alt="{{ p.nombre }} , ${{ p.precio }}, {{ p.descripcion }}" width="210px" height="250px"></a>
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <!-- Product name-->
+                        <h5 class="fw-bolder">{{ p.nombreProducto }}</h5>
+                        <!-- Product price-->
+                        <span class="Price">${{ p.precioProducto }}</span> 
+                        <br>
+                        <span class="text">{{ p.descripcionProducto }}</span> 
+                    </div>
+                  </div>
+                  
+                    <a href="{% url 'Add' p.id %}" class="btn btn-success btn-xs"  >AGREGAR AL CARRO</a>    
+                     
+                    {% endif %}    
+                  </div>             
+              </div>      
+                {% endfor %}
+        </div>
+      </div>
+      <br>
+      <br>
+</section>
+
+
+{% endblock %}
